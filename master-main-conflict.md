@@ -1,4 +1,4 @@
-**_TL,DR: DO NOT pull origin in a new empty repo. Add and commit before you do so._**
+**TL,DR: DO NOT pull origin in a new empty repo. Add and commit before you do so.**
 
 Last year GitHub implemented the change that the base branch is rename from master to main.
 
@@ -13,6 +13,6 @@ However I have encountered something really annoying which drives me crazy. That
 
 > `error: src refspec main does not match any.`
 
-I have only encouter it a couple times, but I began to see the pattern. It is when a new repo is created locally, and new remote origin is pulled to the local repo. There is no items to add and commit. I suspect it will generate a 'ghost' master branch. Since it is empty, it cannot be deleted or merged.
+I have only encouter it a couple times, but I began to see the pattern. It is when a new repo is created locally, and new remote origin is pulled to the local repo. There is no items to add and commit. **The cause: I suspect empty repo generate a 'ghost' master branch, which will conflict with main.** Since it is empty, it cannot be deleted or merged. Within the Lighthouse Labs vagrant we are using git 2.7.4. I have git 2.30.1 install in shell, and I tried using it. The same issue persists. I am not so sure if the issue is cause by outdated version or something else.
 
-The work-around is to add and commit a file, like an empty README, before pulling the remote origin. When you created the GitHub repo and about to copy SSH link, scroll down a bit. GitHub provided ready to use command lines for easy application.
+The workaround is to add and commit a file, like an empty README, before pulling the remote origin. When you created the GitHub repo and about to copy SSH link, scroll down a bit. GitHub provided ready to use command lines for easy application.
